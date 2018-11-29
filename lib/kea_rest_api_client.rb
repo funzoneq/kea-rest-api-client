@@ -1,8 +1,13 @@
 require 'httparty'
 
+# A class to interact with the Kea DHCP Server REST API
 class KEARestApiClient
   include HTTParty
-  base_uri '64.201.245.219:8080'
+  attr_accessor :base_uri
+
+  def initialize(base_uri)
+    self.class.base_uri base_uri
+  end
 
   def command(command, service = ['dhcp4'], arguments = {})
     body = {

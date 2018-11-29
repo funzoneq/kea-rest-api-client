@@ -1,7 +1,7 @@
 # kea-rest-api-client
 A ruby library to interact with the Kea DHCP Server REST API
 
-## Usage
+## Required configuration
 
 Enable the [REST API on Kea](https://gitlab.isc.org/isc-projects/kea/wikis/designs/commands) with this snippet:
 
@@ -62,9 +62,11 @@ Make sure your kea-dhcp4 and kea-dhcp6.conf include:
 }
 ```
 
+## Usage
+
 ```ruby
 require 'pp'
-k = KEARestApiClient.new
+k = KEARestApiClient.new('172.16.1.1:8080')
 ```
 
 Get the config:
