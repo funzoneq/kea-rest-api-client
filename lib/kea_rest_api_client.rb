@@ -73,6 +73,20 @@ class KEARestApiClient
   end
 
   ### DHCPv4 Specific commands
+  def reservation_get(type, identifier, subnet_id)
+    return "type #{type} is not valid" unless ['ip-address'].include?(type)
+
+    command('reservation-get', ['dhcp4'], 'identifier-type' => type, 'identifier' => identifier, 'subnet-id' => subnet_id)
+  end
+
+  def reservation_get_by_address(ip_address, subnet_id)
+    command('reservation-get', ['dhcp4'], 'ip-address' => ip_address, 'subnet-id' => subnet_id)
+  end
+
+  def reservation_add(reservation)
+    command('reservation-add', ['dhcp4'], 'reservation' => reservation)
+  end
+
   def subnet4_list
     command('subnet4-list', ['dhcp4'])
   end

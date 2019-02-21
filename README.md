@@ -96,3 +96,12 @@ pp k.lease6_get_by_ip("2001:0DB8::47")
 pp k.lease6_get_by_duid("00:01:00:01:23:86:cc:fa:70:88:6b:85:d8:a5", 1)
 ```
 
+Add a reservation
+```ruby
+pp k.reservation_add({"hostname"=>"cpe-6405513318001608", "hw-address"=>"00:1e:80:60:cb:6d", "ip-address"=>"172.16.1.170", "subnet-id"=>2})
+```
+
+Get a reservation:
+```ruby
+pp k.reservation_get_by_address("172.16.1.170", 2)
+```
