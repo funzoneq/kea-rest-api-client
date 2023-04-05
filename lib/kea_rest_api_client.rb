@@ -117,6 +117,10 @@ class KEARestApiClient
     command('stat-lease4-get', ['dhcp4'])
   end
 
+  def lease4_del(address)
+    command('lease4-del', ['dhcp4'], 'ip-address' => address)
+  end
+
   ### DHCPv6 Specific commands
   def lease6_get_all
     command('lease6-get-all', ['dhcp6'])
@@ -138,5 +142,9 @@ class KEARestApiClient
 
   def stat_lease6_get
     command('stat-lease6-get', ['dhcp6'])
+  end
+
+  def subnet6_list
+    command('subnet6-list', ['dhcp6'])
   end
 end
