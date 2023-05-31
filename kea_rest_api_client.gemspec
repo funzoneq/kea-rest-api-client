@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'kea_rest_api_client'
-  s.version       = '1.0.0'
+  s.version       = '1.0.1'
   s.authors       = ['Arnoud Vermeer']
   s.email         = ['a.vermeer@freshway.biz']
   s.license       = 'Apache'
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split("\n")
 
-  s.add_runtime_dependency 'httparty', "~> 0.10.0"
+  s.add_runtime_dependency 'httparty', "~> 0.21.0"
 
   s.add_development_dependency 'rspec', '~> 3.3.0'
   s.add_development_dependency 'webmock', '~> 1.22.2'
