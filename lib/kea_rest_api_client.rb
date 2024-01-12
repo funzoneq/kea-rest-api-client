@@ -79,12 +79,20 @@ class KEARestApiClient
     command('reservation-get', ['dhcp4'], 'identifier-type' => type, 'identifier' => identifier, 'subnet-id' => subnet_id)
   end
 
+  def reservation_get_all(subnet_id, operation_target)
+    command('reservation-get-all', ['dhcp4'], 'subnet-id' => subnet_id, 'operation-target' => operation_target)
+  end
+
   def reservation_get_by_address(ip_address, subnet_id)
     command('reservation-get', ['dhcp4'], 'ip-address' => ip_address, 'subnet-id' => subnet_id)
   end
 
-  def reservation_add(reservation)
-    command('reservation-add', ['dhcp4'], 'reservation' => reservation)
+  def reservation_add(reservation, operation_target)
+    command('reservation-add', ['dhcp4'], 'reservation' => reservation, 'operation-target' => operation_target)
+  end
+
+  def reservation_del(subnet_id, ip_address, operation_target)
+    command('reservation-del', ['dhcp4'], 'subnet-id' => subnet_id, 'ip-address' => ip_address, 'operation-target' => operation_target)
   end
 
   def subnet4_list
