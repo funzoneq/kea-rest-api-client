@@ -101,6 +101,10 @@ class KEARestApiClient
     command('lease4-get', ['dhcp4'], 'identifier-type' => type, 'identifier' => identifier, 'subnet-id' => subnet_id)
   end
 
+  def lease4_get_by_client_id(client_id, subnet_id)
+    lease4_get('client-id', client_id, subnet_id)
+  end
+
   def lease4_get_by_mac(hw_address, subnet_id)
     lease4_get('hw-address', hw_address, subnet_id)
   end
