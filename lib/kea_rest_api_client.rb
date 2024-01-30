@@ -103,6 +103,10 @@ class KEARestApiClient
     command('network4-list', ['dhcp4'])
   end
 
+  def lease4_add(ip_address, subnet_id, client_id, hw_address)
+    command('lease4-add', ['dhcp4'], 'ip-address' => ip_address, 'hw-address' => hw_address, 'subnet-id' => subnet_id, 'client-id' => client_id)
+  end
+
   def lease4_get(type, identifier, subnet_id)
     return "type #{type} is not valid" unless ['address', 'hw-address', 'client-id'].include?(type)
 
